@@ -4,3 +4,9 @@ age
 demo(graphics)
 
 demo(Hershey)
+options()
+options(digits=2)
+x <- runif(20)
+summary(x)
+x
+library()
