@@ -24,3 +24,13 @@ dimnames(salesarray)[[1]]
 dimnames(salesarray)[[2]]
 dim(salesarray)
 class(salesarray)
+salesarray[3,2,1]
+salesarray[3,2,]
+salesarray[1,,]
+salesarray[,,1]
+salesarray[,1,]
+apply(salesarray,c(1),sum)#salesman wise
+apply(salesarray,c(2),sum)#department wise
+apply(salesarray,c(3),sum)#companywise
+apply(salesarray,c(2,3),sum)#all salesman -dept and company wise
+apply(salesarray,c(1,2,3),length)#company wise
