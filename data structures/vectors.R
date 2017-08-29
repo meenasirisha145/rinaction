@@ -7,13 +7,16 @@ vec3
 vec1[5]
 vec1[1:3]
 vec1[2]=15
+
 vec1
 vec3=seq(from=0,to=1,by=0.25)
+
 vec3
 vec1+vec2
 vec1[vec1>2]
 vector("numeric",5)
 vec1=vec1[-3]
+
 vec1
 s=c(22,56,9,84,5,89)
 l=c(F,T,F,T,F,T)
@@ -73,6 +76,7 @@ x="good morning!"
 nchar(x)
 x=c("nature's", "best")
 nchar(x)
+
 x=c("nature's", " at its best ")
 nchar(x)
 fname="james"
