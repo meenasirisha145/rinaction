@@ -80,4 +80,16 @@ hist(m1.table)
 pie(m1.table)
 
 
+#example for normal frequency distribution with classes
+set.seed(1234)
+p=ceiling(rnorm(100,60,15))
+p
+mean(p)
+table(p)
+cbind(table(p))
+range(p)
+#breaks=seq(min(p),max(p),10)-to create class intervals
+breaks=seq(20,100,10)
+breaks
+?cut
 
