@@ -17,18 +17,53 @@ m.table=table(m.cuts)
 m.table
 cbind(m.table)
 
-m2=c(12,63,61,63,87,65,1,24,67,52,70,55,29,93,30,84,29,27,19,
-24,32,31,16,4,22,82,53,92,84,5,46,27,31,51,19,76,21,26,
-100,81,56, 65,32,63,33,51,68,49,25,77)
+#m2=c(12,63,61,63,87,65,1,24,67,52,70,55,29,93,30,84,29,27,19,
+#24,32,31,16,4,22,82,53,92,84,5,46,27,31,51,19,76,21,26,
+#100,81,56, 65,32,63,33,51,68,49,25,77)#
+set.seed(1234)
+m2=ceiling(rnorm(100,60,15))
 m2
+mean(m2)
 cat(m2)
 range(m2)
-breaks=seq(0,100,by=10)
-m2.cuts=cut(m2,breaks)
+table(m2)
+m2[c(1,2,3,4,5)]=c(0,10,11,99,100)#to check the cut command replacing first 5 values
+head(m2,n=5)
+
+breaks=seq(0,100,by=10)#to create class intervals
+breaks
+m2.cuts=cut(m2,breaks)#default right=true
 m2.cuts
-m2.table=table(m2.cuts)
+head(m2.cuts,n=5)
+#head(m2,n=5)
+#m2.table=table(m2.cuts)#doesnot displays NA values
+m2.table=table(m2.cuts,useNA='ifany')#displays NA values
 m2.table
-cbind(m.table)
+cbind(m2.table)
+hist(m2.table)
+hist(m2.table,breaks=10)
+
+#correct the problem of NA
+s=cut(m2,breaks=breaks,include.lowest=T)#default right=T
+as.character(head(s,n=5))
+head(m2,n=5)
+table(s,useNA='ifany')
+
+#by making right=F
+s2=cut(m2,breaks=breaks,include.lowest=T,right=F)
+as.character(head(s2,n=5))
+head(m2,n=5)
+table(s2,useNA='ifany')
+
+#Giving Labels
+m2lb=cut(m2,breaks=breaks,include.lowest=T,labels=LETTERS[1:length(breaks)-1])#default right=T
+as.character(head(m2lb,n=5))
+head(m2,n=5)
+table(m2lb,useNA='ifany')
+cbind(table(m2lb,useNA='ifany'))
+hist(table(m2lb,useNA='ifany'))
+
+
 #question:2
 
 marks=c(10 , 12, 13, 14 , 17)
