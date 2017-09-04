@@ -4,8 +4,10 @@ data(diamonds)
 diamonds
 summary(diamonds)
 diamonds$color
+
 str(diamonds)
 hist(diamonds$price)
 mean(diamonds$price)
 median(diamonds$price)
 count(diamonds$price)
+boxplot(diamonds$price,diamonds$depth)

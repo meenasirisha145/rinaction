@@ -29,4 +29,11 @@ df2$rollno[df2$name=='Lalit Sahni']=17013#another way to change the roll no
 df2$name=='Lalit Sahni'
 fix(df2)#edit data frame and save back
 df2
+#finding boxplot
+boxplot(df2$rpgm)
+attach(df2)
+median(rpgm)
+IQR(rpgm)
+quantile(rpgm)
+df2$rpgm
 
