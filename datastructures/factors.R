@@ -6,3 +6,4 @@ x1=factor(c('low','medium','high'),ordered=T)
 x1
 x2=factor(c('low','medium','high'),ordered=T,levels=c("low","medium","high"))
 x2
+

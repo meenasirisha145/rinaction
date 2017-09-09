@@ -9,6 +9,9 @@ opar=par(no.readonly = T)#listing of parameters that can be changed
 opar
 par(opar)            #reset to default
 hist(mtcars$qsec)
+
+
+
 par('mar')
 par('mai')
 hist(mtcars$qsec)
