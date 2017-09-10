@@ -12,6 +12,7 @@ x
 rownames(x)=paste('R',1:4,sep='')
 x
 colnames(x)=paste('c',1:3,sep='')
+
 x
 
 y=c(8,6,4,1)

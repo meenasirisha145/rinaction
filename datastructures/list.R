@@ -27,3 +27,4 @@ sum(mylist[3])#does not work because it is list
 sum(mylist[[3]])#works bcoz it is vector
 mylist[[4]]$t #bcoz name is not assigned to df have to use the index number
 #if name is assigned as student then mylist$student$t
+sum(mylist[[2]])
