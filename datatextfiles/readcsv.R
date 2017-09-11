@@ -3,9 +3,12 @@
 #read from CSV file
 getwd()
 #file.show()
-df1=read.csv(file='./datatextfiles/dsstudents.csv')
+df1=read.csv(file='./datatextfiles/dsstudents.csv')#importing csv file
+#df1a=read.csv(file=file.choose())#to search on realtime basis
+#df1a
 df1
 str(df1)#shows strings(character vectors) as factors
+names(df1)
 #to avoid strings as factors
 df2=read.csv(file='./datatextfiles/dsstudents.csv',stringsAsFactors =F )
 df2
