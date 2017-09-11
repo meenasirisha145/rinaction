@@ -11,3 +11,4 @@ dfsales$namesales
 barplot(dfsales$sales,main="sales of coy",xlab="quarter",ylab="sales")
 sales>11000
 sales[3]
+

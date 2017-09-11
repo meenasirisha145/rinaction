@@ -15,8 +15,8 @@ mylist=list(guest,bills,hosts)
 mylist
 mylist[1]
 mylist[2]
-sum(mylist[[2]])
-sum(mylist[[2]])
 mylist[[3]]$m
 mylist[[3]]$f
 length(mylist[[1]])
+sum(bills[c(1,0),])
+sum(bills[c(2,0),])

@@ -9,4 +9,10 @@ df
 df$students
 length(df$students) 
 length(df$gender)
-  
+newstudent=c(paste("student",1:5,"") )
+newstudent
+df$students=newstudent
+df
+table(df$cat)
+table(df$gender)
+table(df$cat,df$gender)
