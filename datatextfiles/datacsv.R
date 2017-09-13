@@ -57,13 +57,35 @@ save.image(file='./datatextfiles/meena3.RData')#save all current objects/multipl
 save.image()#saves to default RData
 
 
+#load objects from saved locations
+#from csv
+#from RDS
+#from RData
+readRDS(file='./datatextfiles/meena1.RDS')#loads and prints
+mydata=readRDS(file='./datatextfiles/meena1.RDS')
+mydata
+#load()#for data in .RData this happens automatically
+load(file='./datatextfiles/meena2.RData')
+load(file='./datatextfiles/meena3.RData')
+ls()
 
 #filter
 df2$age>30#by age
 df2[df2$age>30,][1:2]
-df2[df2$age>30,][1:5]
+df2[df2$age>30,c(1,3,5,7)]
 
 
-#filter----
+#filter----by course and gender
 df2[df2$gender=='M'& df2$course=='PGDDS',][1:5]
+df2[df2$gender=='M'& df2$course=='PGDDS',c('rollno','name')]
+colnames(df2)
+rownames(df2)
+
+#find from indices----
+df2[df2$hostel==T,c(1,2)]#stay in hostel
+df2[,c('rollno','hostel')]
+which(df2$hostel==T)#using which command tells indices
+df2[which(df2$hostel==T)] #,c(1,2,4,5)]#stays in hostel
+df2[which(!df2$hostel==T),c(1,2,4,5)]#not in hostel
+
 
