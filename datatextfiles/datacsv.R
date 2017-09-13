@@ -40,6 +40,23 @@ difftime(Sys.Date(),df2$dob,unit='weeks')
 (df2$age=ceiling(as.numeric(difftime(Sys.Date(),df2$dob,unit='weeks'))/52.5))
 head(df2$age)
 str(df2)
+summary(df2)
+
+
+#save data
+write.csv(x=df2,file='./datatextfiles/meena.csv')#save to csv
+#you can save to other formats using other tools/options
+?write.csv
+#save the data without loosing the properties
+saveRDS(object=df2,file='./datatextfiles/meena1.RDS')#only 1 object at a time
+
+markstotal = runif(11,50,150)
+markstotal
+save(markstotal,df2,file='./datatextfiles/meena2.RData') #multiple objects at a time
+save.image(file='./datatextfiles/meena3.RData')#save all current objects/multiple objects
+save.image()#saves to default RData
+
+
 
 #filter
 df2$age>30#by age

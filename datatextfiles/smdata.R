@@ -17,3 +17,7 @@ head(data$age)
 str(data)
 data[data$age>25,][1:5]
 data[data$age>20,][1:5]
+table(data$cat)
+table(data$gender)
+table(data$cat,data$gender)
+data$java>80
