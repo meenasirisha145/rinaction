@@ -1,0 +1,10 @@
+#margin
+party=c("bjp","congress","sp","aap")
+length(party)
+states=c("up","delhi","haryana","punjab","uk")
+length(states)
+set.seed(1234)
+mp=ceiling(runif(20,25,50))
+df=data.frame(party,states,mp)
+df
+df(sort(df$party))

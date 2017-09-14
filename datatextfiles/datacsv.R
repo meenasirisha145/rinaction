@@ -88,4 +88,8 @@ which(df2$hostel==T)#using which command tells indices
 df2[which(df2$hostel==T)] #,c(1,2,4,5)]#stays in hostel
 df2[which(!df2$hostel==T),c(1,2,4,5)]#not in hostel
 
+#13 sep 17 
+#sort
+
+
 
