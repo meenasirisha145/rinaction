@@ -67,7 +67,7 @@ p2
 colSums(p2)
 addmargins(p1,1,sum)
 
-barplot(matresults)
-qqplot(df$party1,df$state1)
+
+
 
 

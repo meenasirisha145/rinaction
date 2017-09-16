@@ -1,0 +1,9 @@
+sqrt(729)
+b=1947.0
+b=as.character(b)
+b
+class(b)
+x=c(1,2,3,4,5,6)
+class(x)
+y=c(1,'a',2,'b')
+class(y)
