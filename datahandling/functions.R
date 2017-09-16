@@ -101,3 +101,23 @@ lsf.str(pos=5)
 save(area,area1,area2,area3,fsum1,fsum2,fsum2a,fsum3,file='./datahandling/mfn.RData')
 load(file = './datahandling/mfn.RData')
 area     
+
+#R arguments and objects name into character strings
+args(area)
+(ch1=deparse(args(area)))
+str(ch1)
+
+#invisible
+area <- function(pi, r) {
+  areacircle=pi*r^2
+  invisible(areacircle)
+}
+area(pi,5)        #no output shown
+(ch=area(pi,5))   #assigns and prints
+print(area,useSource = T)
+print(area,useSource = F)
+#print command and optios
+pi
+print(pi)
+print(pi,digits=2)
+?print

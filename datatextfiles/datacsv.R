@@ -88,8 +88,31 @@ which(df2$hostel==T)#using which command tells indices
 df2[which(df2$hostel==T)] #,c(1,2,4,5)]#stays in hostel
 df2[which(!df2$hostel==T),c(1,2,4,5)]#not in hostel
 
-#13 sep 17 
-#sort
+
+#Function----
+load(file='./datatextfiles/meena2.RData')
+df2$fees
+feestatus=function(x){
+  if(x>=150000)
+    print(paste(i,df2$name[i],x,'-Fee Paid'),quote=F)
+  else
+    print(paste(i,df2$name[i],x,'-fee not paid'),quote=F)
+}
+for (i in c(1:11)){
+  feestatus(df2$fees[i])
+}
+
+#if we dont know the no of students
+feestatus=function(x){
+  if(x>=150000)
+    print(paste(i,df2$name[i],x,'-Fee Paid'),quote=F)
+  else
+    print(paste(i,df2$name[i],x,'-fee not paid'),quote=F)
+}
+dim(df2)[1];nrow(df2)
+for (i in c(1:nrow(df2))){
+  feestatus(df2$fees[i])
+}
 
 
-
+  
