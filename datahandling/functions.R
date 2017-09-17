@@ -1,5 +1,5 @@
-rm(list=ls())
-df=load(file='./datatextfiles/meena2.RData')
+rm(list = ls())
+df = load(file = './datatextfiles/meena2.RData')
 df
 cat(names(df2))
 #Functions

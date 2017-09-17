@@ -16,3 +16,12 @@ length(diamonds$carat[diamonds$price<500])
 length(diamonds)
 length(diamonds$carat[diamonds$price<250])
 length(diamonds$carat[diamonds$price>=15000])
+h=hist(diamonds$price,main="prices of diamonds",xlab="no of diamonds",ylab="price",col="magenta")
+h
+h=hist(diamonds$price,main="prices of diamonds",xlab="no of diamonds",ylab="price",col="magenta")
+h
+h=hist(diamonds$price,main="prices of diamonds",xlab="no of diamonds",ylab="price",xlim=c(500,20000),breaks=20,col="magenta")
+h
+h=hist(diamonds$price,main="prices of diamonds",xlab="no of diamonds",ylab="price",xlim=c(500,20000),breaks=20,col="magenta")
+text(h$mids,h$counts)
+text(h$mids,h$counts,labels=h$counts,adj=c(0.5,-0.5))
