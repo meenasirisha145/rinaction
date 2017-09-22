@@ -55,7 +55,7 @@ apply(x,c(3,1),sum)
 apply(x,c(3,2),sum)
 
 
-
+#add margins-----
 class(apply(x,1,sum))#integer vector
 addmargins(x,1,sum)#adds column values and create a row
 addmargins(x,2,sum)#adds row values and create a column

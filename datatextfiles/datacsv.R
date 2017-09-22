@@ -24,13 +24,18 @@ as.Date('1967-20-15')#wrong
 as.Date('1967-10-15')#right default %y-%b-%d :learn this
 ?as.Date
 as.Date('05-Oct-1967',format="%d-%b-%Y")#correct
+class(df2$dob)
 as.Date('05-Oct-67',format="%d-%b-%y")#this is also correct#(00 to 68 prefixed by 20)
+class(df2$dob)
 as.Date('05-Oct-85',format="%d-%b-%y") #(69 to 99 prefixed by 19) 
+class(df2$dob)
 as.Date('05-Oct-85',format="%d-%b-%Y")
+class(df2$dob)
 str(df2$dob)
 #now convert the date column
 head(df2$dob)#1-Sep-96:d-b-y
 (df2$dob=as.Date(df2$dob,format="%d-%b-%y"))
+class(df2$dob)
 str(df2$dob)
 #add another column-----calculate age
 #days=Sys.Date()-df2$dob #days -> age :numeric values -days:diff in weeks
