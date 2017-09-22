@@ -119,5 +119,8 @@ for (i in c(1:nrow(df2))){
   feestatus(df2$fees[i])
 }
 
-
-  
+aggregate(df2[c('fees','excel','rpgm','sql')],list(dcourse=df2$course,gender=df2$gender),sum)
+split(df2[1:3],df2$gender)
+split(df2[1:3],df2$gender)$F
+split(df2[1:3],df2$gender)$M
+class(split(df2[1:3],df2$gender))
