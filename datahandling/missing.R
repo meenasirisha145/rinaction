@@ -37,6 +37,7 @@ addmargins(is.na(df),1,sum)
 length(which(is.na(df['excel']==T)))
 
 sum(is.na(df$excel))
+
 mean(df$excel,na.rm=T)
 df$excel
 df$excel[is.na(df$excel)]

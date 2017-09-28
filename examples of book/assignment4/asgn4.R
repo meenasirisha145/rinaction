@@ -28,10 +28,10 @@ df3[!complete.cases(df3),1:2]
 colSums(is.na(df3))#no of na values in each column
 #replacing NA values in excel column with mean values
 sum(is.na(df3$excel))
-mean(df3$excel,na.rm=T)
+round(mean(df3$excel,na.rm=T))
 df3$excel
 df3$excel[is.na(df3$excel)]
-df3$excel[is.na(df3$excel)]=mean(df3$excel,na.rm=T)
+df3$excel[is.na(df3$excel)]=round(mean(df3$excel,na.rm=T))
 df3$excel
 #replacing NA Values in sql column with mean-----
 sum(is.na(df3$sql))
@@ -68,14 +68,14 @@ colSums(is.na(df4))
 #replacing Na values-----
 df4$rpgm
 mean(df4$rpgm,na.rm=T)
-df4$rpgm[is.na(df4$rpgm)]=mean(df4$rpgm,na.rm=T)
+df4$rpgm[is.na(df4$rpgm)]=round(mean(df4$rpgm,na.rm=T))
 df4$rpgm
-round(df4$excel)
-df4$excel[is.na(df4$excel)]=mean(df4$excel,na.rm=T)
+round(mean(df4$excel,na.rm=T))
+df4$excel[is.na(df4$excel)]=round(mean(df4$excel,na.rm=T))
 df4$excel
-df4$sql[is.na(df4$sql)]=mean(df4$sql,na.rm=T)
+df4$sql[is.na(df4$sql)]=round(mean(df4$sql,na.rm=T))
 df4$sql
-df4$stats[is.na(df4$stats)]=mean(df4$stats,na.rm=T)
+df4$stats[is.na(df4$stats)]=round(mean(df4$stats,na.rm=T))
 df4$stats
 #replacing NA values in age-------
 difftime(Sys.Date(),df4$dob,unit='weeks')
@@ -83,4 +83,12 @@ df4$age=ceiling(as.numeric(difftime(Sys.Date(),df4$dob,unit='weeks'))/52.5)
 df4$age
 df4$gender[is.na(df4$gender)]="M"
 df4$gender
-xtabs(df4$rollno~df4$rpgm~df4$excel~df4$stats~df4$sql)
+
+
+
+
+##creating another dataframe----
+df5=array(df4[c("rollno","rpgm","sql","excel","stats")])
+names(df5)=c("rollno","rpgm","sql","excel","stats")
+df5
+dimnames(df5)
