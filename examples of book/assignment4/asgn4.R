@@ -40,6 +40,7 @@ df3$sql
 df3$sql[is.na(df3$sql)]
 df3$sql[is.na(df3$sql)]=mean(df3$sql,na.rm=T)
 df3$sql
+
 #replacing NA Values in fees column with median
 sum(is.na(df3$fees))
 median(df3$fees,na.rm=T)
@@ -55,7 +56,7 @@ df3$hostel[is.na(df3$hostel)]=median(df3$hostel,na.rm=T)
 df3$hostel
 colnames(df3)
 #adding a row
-df=data.frame(17000, "Ramesh Singh", "MSC", NA ,"True", "1994-10-17", 50000, "ramesh@gmail.com",NA , "Delhi",NA ,NA ,NA ,NA,NA)
+df=data.frame(17000, "Ramesh Singh", "MSCDS", NA ,"True", "1994-10-17", 50000, "ramesh@gmail.com",NA , "Delhi",NA ,NA ,NA ,NA,NA)
 
 names(df)=c ("rollno","name" ,  "course" ,"gender" ,"hostel", "dob" ,   "fees",   "email",  "mobno" , "city",  
           "rpgm" ,  "excel"  ,"sql"   , "stats"  ,"age")
@@ -77,18 +78,76 @@ df4$sql[is.na(df4$sql)]=round(mean(df4$sql,na.rm=T))
 df4$sql
 df4$stats[is.na(df4$stats)]=round(mean(df4$stats,na.rm=T))
 df4$stats
+
 #replacing NA values in age-------
 difftime(Sys.Date(),df4$dob,unit='weeks')
 df4$age=ceiling(as.numeric(difftime(Sys.Date(),df4$dob,unit='weeks'))/52.5)
 df4$age
 df4$gender[is.na(df4$gender)]="M"
 df4$gender
-
+str(df4)
 
 
 
 ##creating another dataframe----
-df5=array(df4[c("rollno","rpgm","sql","excel","stats")])
-names(df5)=c("rollno","rpgm","sql","excel","stats")
+df5=df4[c("rpgm","sql","excel","stats")]
+names(df5)=c("rpgm","sql","excel","stats")
+rownames(df5)=df4$rollno
 df5
-dimnames(df5)
+addmargins(as.table(as.matrix(df5)),c(2,1,1),list(sum,mean,median))#finding sum, mean ,medain using add margins
+
+
+#creating course vs gender table-----
+g=table(df4$course,df4$gender)
+addmargins(g)
+prop.table(g)
+
+
+#grading of students
+df6=df4[c("rollno","name","rpgm","sql","excel","stats")]
+df6
+df6$total=rowMeans(df6[,c("rpgm","sql","excel","stats")])
+df6
+grades <- function(x){    #function for alloting grades
+  if (x > 70){
+    print('A')
+  } else if (x >= 60 & x <= 70){
+    print('B')
+  } else {
+    print('C')
+  }
+}
+for (i in c(1:12)){
+  df6$grade[i] <- grades(df6$total[i])# for loop for giving grades according to avg. marks per row
+}
+df6
+df6$ranks <- rank(-df6$total)#rank 1 to largest total marks
+df6
+
+#colmeans and rowmeans
+df7=df4[c("rpgm","sql","excel","stats")]
+names(df7)=c("rpgm","sql","excel","stats")
+rowMeans(df7)
+colMeans(df7)
+
+##spliting the dataframe wrt course,wrt gender-hostel
+split(df4[1:3],df4$course)#split according to course
+split(df4[1:3],list(df4$gender,df4$hostel))#split wrt gender-hostel
+#adding bigdata marks and scaling
+bigdata =ceiling(runif(12,100,150))
+bigdata
+df8=df4#creating new dataframe - df8
+df8
+df8$bigdata =bigdata#adding bigdata to df8
+df8
+#scaling the marks of bigdata
+df8$bigdata1=scale(df8$bigdata,center=F)#scaling bigdata marks
+df8
+
+
+#barplot
+df9= df8[c('rpgm','excel','sql','stats','bigdata')]
+df9
+g1=colMeans(df9)
+barplot(g1,main = 'Average Marks',ylim=c(0,140))#barplot of average marks
+
