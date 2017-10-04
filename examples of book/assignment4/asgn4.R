@@ -127,8 +127,10 @@ df6
 #colmeans and rowmeans
 df7=df4[c("rpgm","sql","excel","stats")]
 names(df7)=c("rpgm","sql","excel","stats")
+df7
 rowMeans(df7)
 colMeans(df7)
+
 
 ##spliting the dataframe wrt course,wrt gender-hostel
 split(df4[1:3],df4$course)#split according to course
@@ -149,5 +151,6 @@ df8
 df9= df8[c('rpgm','excel','sql','stats','bigdata')]
 df9
 g1=colMeans(df9)
-barplot(g1,main = 'Average Marks',ylim=c(0,140))#barplot of average marks
+g1
+barplot(g1,main = 'Plot of Average Marks',xlab="subjects",ylab="average marks of each subject",ylim=c(0,140))#barplot of average marks
 
