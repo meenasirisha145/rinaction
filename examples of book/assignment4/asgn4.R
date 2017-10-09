@@ -2,7 +2,9 @@
 df3=read.csv(file=file.choose())#reading the file into r
 df3
 str(df3)
-df3=read.csv(file=file.choose(),stringsAsFactors = F)
+df3=read.csv(file=file.choose(),stringsAsFactors = F,row.names=1)
+#df3=read.csv(file=file.choose(),stringsAsFactors = F,
+             #row.names=1,header=F)
 df3
 str(df3)
 summary(df3)
@@ -14,6 +16,7 @@ table(is.na(df3))#finding no of na values
 df3$dob=as.Date(df3$dob,format="%d-%b-%y")
 class(df3$dob)
 str(df3)
+df3$dob
 #creating an age column----
 difftime(Sys.Date(),df3$dob,unit='weeks')
 (df3$age=ceiling(as.numeric(difftime(Sys.Date(),df3$dob,unit='weeks'))/52.5))
@@ -25,6 +28,7 @@ complete.cases(df3)
 df3[complete.cases(df3),]
 df3[complete.cases(df3),1:2]
 df3[!complete.cases(df3),1:2]
+colSums(df3[10:13],na.rm=T)
 colSums(is.na(df3))#no of na values in each column
 #replacing NA values in excel column with mean values
 sum(is.na(df3$excel))
@@ -48,19 +52,30 @@ df3$fees
 df3$fees[is.na(df3$fees)]
 df3$fees[is.na(df3$fees)]=mean(df3$fees,na.rm=T)
 df3$fees
+table(df3$city)
+x=sort(table(df3$city),decreasing =T)[1]
+names(x)
 #replacing NA values in hostel column
 sum(is.na(df3$hostel))
-median(df3$hostel,na.rm=T)
+sample(c('TRUE','FALSE'),5,replace=T,prob = c(0.5,0.5))
 df3$hostel
-df3$hostel[is.na(df3$hostel)]=median(df3$hostel,na.rm=T)
+df3$hostel[is.na(df3$hostel)]="TRUE"
 df3$hostel
 colnames(df3)
 #adding a row
-df=data.frame(17000, "Ramesh Singh", "MSCDS", NA ,"True", "1994-10-17", 50000, "ramesh@gmail.com",NA , "Delhi",NA ,NA ,NA ,NA,NA)
+df=data.frame("Ramesh Singh", "MSCDS", NA ,"True", "1994-10-17", 50000, "ramesh@gmail.com",NA , "Delhi",NA ,NA ,NA ,NA,NA)
 
-names(df)=c ("rollno","name" ,  "course" ,"gender" ,"hostel", "dob" ,   "fees",   "email",  "mobno" , "city",  
+names(df)=c ("name" ,  "course" ,"gender" ,"hostel", "dob" ,   "fees",   "email",  "mobno" , "city",  
           "rpgm" ,  "excel"  ,"sql"   , "stats"  ,"age")
+colnames(df3)
+length(df3)
+length(df)
+
 df4=rbind(df3,df)
+df4
+names(df4[12,])
+rownames(df4)[12]
+rownames(df4)[12]=17000
 df4
 is.na(df4)
 sum(is.na(df4))
@@ -86,15 +101,16 @@ df4$age
 df4$gender[is.na(df4$gender)]="M"
 df4$gender
 str(df4)
+df4$rollno=rownames(df4)
 
 
-
-##creating another dataframe----
+df4##creating another dataframe----
 df5=df4[c("rpgm","sql","excel","stats")]
 names(df5)=c("rpgm","sql","excel","stats")
 rownames(df5)=df4$rollno
+
 df5
-addmargins(as.table(as.matrix(df5)),c(2,1,1),list(sum,mean,median))#finding sum, mean ,medain using add margins
+round(addmargins(as.table(as.matrix(df5)),c(2,1,1),list(sum,mean,median)))#finding sum, mean ,medain using add margins
 
 
 #creating course vs gender table-----
@@ -123,7 +139,7 @@ for (i in c(1:12)){
 df6
 df6$ranks <- rank(-df6$total)#rank 1 to largest total marks
 df6
-
+df6$name[df6$ranks==5]
 #colmeans and rowmeans
 df7=df4[c("rpgm","sql","excel","stats")]
 names(df7)=c("rpgm","sql","excel","stats")
@@ -154,3 +170,8 @@ g1=colMeans(df9)
 g1
 barplot(g1,main = 'Plot of Average Marks',xlab="subjects",ylab="average marks of each subject",ylim=c(0,140))#barplot of average marks
 
+
+df4
+aggregate(df4[c("rpgm","sql","excel","stats")],by=list(df4$course,df4$gender),
+          FUN =mean)
+  
