@@ -1,0 +1,16 @@
+#SWEEP----------
+m=matrix(1:12,ncol=3)
+m
+m+1
+m+c(1,2)
+dx=colMeans(m)
+dx
+sweep(m,2,dx,FUN="+")
+m
+rx=rowMeans(m)
+rx
+s=sd(m)
+s
+sweep(m,1,rx,FUN="+")
+sweep(m,1,s,FUN="+")
+sweep(m,c(1,2),c(dx,rx),FUN="+")

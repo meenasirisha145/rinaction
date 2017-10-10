@@ -171,3 +171,12 @@ by(warpbreaks$breaks,warpbreaks$tension,sum)
 #VAPPLY-----
 x
 vapply(x,FUN = length,FUN.VALUE = 0L)
+
+#TAPPLY-----
+library(MASS)
+painters
+painters$School
+painters$Composition
+tapply(painters$Composition,painters$School,mean)
+tapply(painters$Composition,painters$School,mean)['C']
+tapply(painters$Composition,painters$School,summary)
