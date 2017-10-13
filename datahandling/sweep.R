@@ -13,4 +13,5 @@ s=sd(m)
 s
 sweep(m,1,rx,FUN="+")
 sweep(m,1,s,FUN="+")
-sweep(m,c(1,2),c(dx,rx),FUN="+")
+sweep(m,c(1,2),c(rx,dx),FUN="+")
+m
