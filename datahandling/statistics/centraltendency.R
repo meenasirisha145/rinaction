@@ -33,9 +33,15 @@ x=c(3,6,6,7,8,11,15,16)
 x
 mx=mean(x)
 mx
-mdev=(mx-x)
+mdev=(x-mx)
 mdev
 abs(mdev)
 (mabsdev=sum(abs(mdev))/length(x))#manual calculation for mad
 mad(x,center = mean(x))#direct formula for mean absolute deviation#by default center is median
 
+
+#mode----
+x=c(2,3,4,4,5,5)
+library(modeest)
+m=mlv(x,method = "mfv")
+m
