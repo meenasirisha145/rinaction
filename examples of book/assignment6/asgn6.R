@@ -39,10 +39,8 @@ e$a=matrix(1:12,nrow=4)
 e$b=array(c(1:3*4*2),dim=c(3,4,2))
 e$a
 e$b
-mean(e$a)
-mean(e$b)
-class(e$a)
-class(e$b)
+eapply(e,mean)
+eapply(e,class)
 
 #QUESTION 3-----
 # create a list with 2 elements 1:20 and 55:100 and mpg and weight coln of mtcars dataset
