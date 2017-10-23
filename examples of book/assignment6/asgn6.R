@@ -51,3 +51,6 @@ l
 # Find the sum of the values in each element
 lapply(l,sum)#print the values in the form of list
 sapply(l,sum)#print the values in the form of vector
+
+
+
