@@ -135,11 +135,12 @@ classB = c(20,25,27)
 classC = c(13,15,17)
 classmarks <- data.frame(classA,classB,classC)
 classmarks
+
 stack(classmarks)
 d = stack(classmarks,c('classA','classC'))
 unstack(d)
 #Q8 - by
-df5 = read.csv("./data/dsstudents.csv",na.strings = '')
+df5 = read.csv("./datatextfiles/dsstudents.csv",na.strings = '')
 df5
 b1 <- by(df5[,c(11)],INDICES = df5$course,mean)
 b1
