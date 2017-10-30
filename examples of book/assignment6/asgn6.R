@@ -142,19 +142,20 @@ unstack(d)
 #Q8 - by
 df5 = read.csv("./datatextfiles/dsstudents.csv",na.strings = '')
 df5
+summary(df5)
+dim(df5)
 b1 <- by(df5[,c(11)],INDICES = df5$course,mean)
 b1
 b2 <- by(df5[,c(12)],INDICES = df5$course,mean)
 b2
 b3 <- by(df5[,c(13)],INDICES = df5$course,mean)
 b3
-b4 <- by(df5[,c(14)],INDICES = df5$course,mean)
+b4 <- by(df5[,c(10)],INDICES = df5$course,mean)
 b4
 b5 <- by(df5[,c(1)],INDICES = df5$course,mean)
 b5
-b6 <- by(df5[,c(7)],INDICES = df5$course,mean)
-b6
-save(b1,b2,b3,b4,b5,b6,file = 'mydata.RData')
+
+save(b1,b2,b3,b4,b5,file = 'mydata.RData')
 #Q9 - Aggregate
 aggregate(mtcars,by=list(mtcars$cyl,mtcars$am),FUN='mean')
 df5
